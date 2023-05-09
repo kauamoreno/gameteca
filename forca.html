@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/css/forca.css">
+    <script src="public/js/forca.js"></script>
+    
+    <title>Jogo da Forca</title>
+</head>
+<!-- Inicializando a função que sorteia as palavras -->
+<body onload="sorteia()">
+    <div id="jogo">
+        <div id="titulo">
+            <h1>Jogo da Forca</h1>
+        </div>
+        <div id="tabeladiv">
+            <!-- O jogo será quebradp em 3 tabelas para que o redimensionamento de uma não afete a outra -->
+
+            <!-- Tabela com a pontuação e a imagem da forca -->
+            <table border="0" id="tabela" align="center">
+                <tr>
+                    <td id="tabAcerto">
+                        <div id="acerto">Acertos: 0</div>
+                        <br>
+                        <div id="palcerta">| Palavras certas: 0 <br> | Palavras erradas: 0</div>
+                    </td>
+                    <td>
+                        <div id="forca" class="anima">
+                            <img src="public/img/forca/forca1.png" id="imagem">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <hr>
+            <!-- Tabela com temas e tentativas -->
+            <table border="0" id="tabela" align="center">
+                <tr>
+                    <td>
+                        <br>
+                        <div id="tema">Tema: Fruta</div>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- Formulários dinamicos para as tentativas -->
+                        <div id="tentativa">
+                            <form id="tenta"></form>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <hr>
+            <!-- Tabela com as letras -->
+            <table border="0" id="tabela" align="center">
+                <tr>
+                    <td>
+                        <div id="letras">
+                            <p>
+                                <!-- Cada letra terá um evento quando o botão do mouse for pressinado e for solto. Ambas as ações ocorrerão inteiramente-->
+
+                                <button type="button" id="Q" onmousedown="confere('Q')" onmouseup="acabou()">Q</button>
+                                <button type="button" id="W" onmousedown="confere('W')" onmouseup="acabou()">W</button>
+                                <button type="button" id="E" onmousedown="confere('E')" onmouseup="acabou()">E</button>
+                                <button type="button" id="R" onmousedown="confere('R')" onmouseup="acabou()">R</button>
+                                <button type="button" id="T" onmousedown="confere('T')" onmouseup="acabou()">T</button>
+                                <button type="button" id="Y" onmousedown="confere('Y')" onmouseup="acabou()">Y</button>
+                                <button type="button" id="U" onmousedown="confere('U')" onmouseup="acabou()">U</button>
+                                <button type="button" id="I" onmousedown="confere('I')" onmouseup="acabou()">I</button>
+                                <button type="button" id="O" onmousedown="confere('O')" onmouseup="acabou()">O</button>
+                                <button type="button" id="P" onmousedown="confere('P')" onmouseup="acabou()">P</button>
+
+                                <br><br>
+
+                                <button type="button" id="A" onmousedown="confere('A')" onmouseup="acabou()">A</button>
+                                <button type="button" id="S" onmousedown="confere('S')" onmouseup="acabou()">S</button>
+                                <button type="button" id="D" onmousedown="confere('D')" onmouseup="acabou()">D</button>
+                                <button type="button" id="F" onmousedown="confere('F')" onmouseup="acabou()">F</button>
+                                <button type="button" id="G" onmousedown="confere('G')" onmouseup="acabou()">G</button>
+                                <button type="button" id="H" onmousedown="confere('H')" onmouseup="acabou()">H</button>
+                                <button type="button" id="J" onmousedown="confere('J')" onmouseup="acabou()">J</button>
+                                <button type="button" id="K" onmousedown="confere('K')" onmouseup="acabou()">K</button>
+                                <button type="button" id="L" onmousedown="confere('L')" onmouseup="acabou()">L</button>
+
+                                <br><br>
+
+                                <button type="button" id="Z" onmousedown="confere('Z')" onmouseup="acabou()">Z</button>
+                                <button type="button" id="X" onmousedown="confere('X')" onmouseup="acabou()">X</button>
+                                <button type="button" id="C" onmousedown="confere('C')" onmouseup="acabou()">C</button>
+                                <button type="button" id="V" onmousedown="confere('V')" onmouseup="acabou()">V</button>
+                                <button type="button" id="B" onmousedown="confere('B')" onmouseup="acabou()">B</button>
+                                <button type="button" id="N" onmousedown="confere('N')" onmouseup="acabou()">N</button>
+                                <button type="button" id="M" onmousedown="confere('M')" onmouseup="acabou()">M</button>
+                                <button type="button" id="-" class="traco" onmousedown="confere('-')" onmouseup="acabou()">-</button>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
