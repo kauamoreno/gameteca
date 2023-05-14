@@ -1,17 +1,20 @@
-const larguraTela = 600;
+const qtdDeFaixas = 3;
+const larguraFaixa = 200;
+
+const larguraTela = qtdDeFaixas * larguraFaixa;
 const alturaTela = 1300;
 let pontos = 0;
 
 const jogador = {
-    'aresta': larguraTela / 3,
+    'aresta': larguraFaixa,
     'eixoX': 0,
-    'eixoY': alturaTela - (larguraTela / 3 + 20),
+    'eixoY': alturaTela - (larguraFaixa + 20),
     'cor': 'yellow',
-    'velocidade': larguraTela / 3
+    'velocidade': larguraFaixa
 }
 
 const obstaculo = {
-    'aresta': jogador.aresta,
+    'aresta': larguraFaixa,
     'eixoX': obstaculoEixoX(),
     'eixoY': 0,
     'velocidadeEixoX': 5,
@@ -43,6 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         document.addEventListener("keydown", moverJogador);
         setTimeout(ciclo, 10);
+
     }
 
     ciclo()
@@ -62,7 +66,7 @@ function moverJogador(event) {
 }
 
 function obstaculoEixoX(){
-    let opcoes = [0, larguraTela/3, larguraTela - larguraTela / 3];
+    let opcoes = [0, larguraFaixa, larguraFaixa * (qtdDeFaixas - 1)];
     let indiceAleatorio = Math.floor(Math.random() * opcoes.length);
     return opcoes[indiceAleatorio];
 }
@@ -81,7 +85,7 @@ function moverObstaculo() {
 
 function gameOver(){
     if(jogador.eixoY == obstaculo.eixoY + obstaculo.aresta && jogador.eixoX === obstaculo.eixoX){
-        alert('Game Over');
+        alert(`Game Over - Pontos: ${pontos}`);
         pontos = 0
     }
 }
