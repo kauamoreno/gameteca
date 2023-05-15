@@ -1,6 +1,7 @@
 body{
     display: flex;
     justify-content: center;
+    color: #fff;
 }
 
 #tela{
@@ -12,4 +13,41 @@ body{
 .pontos{
     font-size: 40px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #ffcc00;
+    text-shadow: 2px 2px #333;
+}
+
+table {
+    width: 400px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #444;
+    border: 2px solid #ffcc00;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #ffcc00;
+    color: #222;
+    text-shadow: 1px 1px #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #666;
+}
+
+tr:nth-child(odd) {
+    background-color: #888;
+}
+
+tr:first-child {
+    font-weight: bold;
 }
