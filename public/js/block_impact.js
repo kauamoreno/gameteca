@@ -1,8 +1,8 @@
 const qtdDeFaixas = 3;
-const larguraFaixa = 200;
+const larguraFaixa = 100;
 
 const larguraTela = qtdDeFaixas * larguraFaixa;
-const alturaTela = 1300;
+const alturaTela = 700;
 let pontos = 0;
 
 const jogador = {
@@ -80,6 +80,7 @@ function moverObstaculo() {
         obstaculo.eixoX = obstaculoEixoX(); // Define uma nova posição aleatória no eixo X
 
         pontos++
+        document.querySelector('.pontos').innerHTML = `Pontos: ${pontos}`;
         console.log(pontos);
     }
 }

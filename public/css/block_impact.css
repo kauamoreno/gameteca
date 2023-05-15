@@ -6,3 +6,8 @@ body{
 #tela{
     background-color: rgb(32, 32, 32);
 }
+
+.pontos{
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
