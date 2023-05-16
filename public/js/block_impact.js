@@ -21,7 +21,11 @@ const obstaculo = {
     'cor': 'green'
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+function iniciarAtraso(){
+    setTimeout(iniciar, 2000);
+}
+
+function iniciar(){
 
     let tela = document.querySelector('#tela');
     let ctx = tela.getContext('2d');
@@ -52,7 +56,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     ciclo()
 
-})
+}
 
 function moverJogador(event) {
     const tecla = event.key;
