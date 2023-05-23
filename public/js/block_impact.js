@@ -135,3 +135,7 @@ function rectsSobrepostos(rect1, rect2) {
         rect1.y + rect1.height > rect2.y
     );
 }
+
+function mudarCor(cor){
+    jogador.cor = cor;
+}

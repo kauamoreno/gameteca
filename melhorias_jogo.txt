@@ -1,0 +1,4 @@
+1. Add cronometro 
+2. Desabilitar botão quando iniciar
+3. Habilitar quando gameOver
+4. Melhorar seleção de pernonagem
