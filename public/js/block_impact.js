@@ -21,11 +21,28 @@ const obstaculo = {
     'cor': 'green'
 }
 
-function iniciarAtraso(){
-    setTimeout(iniciar, 2000);
+function iniciarAtraso() {
+    // setTimeout(iniciar, 2000);
+
+    let contador = 5; // Valor inicial do cronômetro
+
+    let cronometro = document.getElementById("cronometro");
+    cronometro.innerHTML = contador; // Exibir o valor inicial
+
+    let timer = setInterval(function () {
+        contador--; // Decrementar o valor
+
+        if (contador >= 0) {
+            cronometro.innerHTML = contador; // Exibir o valor atualizado
+        } else {
+            clearInterval(timer); // Parar o cronômetro quando chegar a 0
+            iniciar();
+        }
+    }, 1000); // Atualizar a cada segundo (1000 milissegundos)
+
 }
 
-function iniciar(){
+function iniciar() {
 
     let tela = document.querySelector('#tela');
     let ctx = tela.getContext('2d');
@@ -95,7 +112,7 @@ let dificuldadeAumentada = 0; // Contador de aumentos de dificuldade
 
 function dificuldade() {
 
-    if(pontos == 0){
+    if (pontos == 0) {
         obstaculo.velocidadeEixoX = 10;
     }
     if (aumentarDificuldade.includes(pontos) && pontos > dificuldadeAumentada) {
@@ -136,6 +153,6 @@ function rectsSobrepostos(rect1, rect2) {
     );
 }
 
-function mudarCor(cor){
+function mudarCor(cor) {
     jogador.cor = cor;
 }
