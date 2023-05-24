@@ -1,3 +1,6 @@
+const obstaculoHamburguer = new Image();
+obstaculoHamburguer.src = '/public/img/block_impact/hamburguer2.png';
+
 const qtdDeFaixas = 3;
 const larguraFaixa = 100;
 
@@ -59,7 +62,7 @@ function iniciar() {
 
         // Adiciona um quadrado na tela
         ctx.fillStyle = obstaculo.cor; // Cor
-        ctx.fillRect(obstaculo.eixoX, obstaculo.eixoY, obstaculo.aresta, obstaculo.aresta); // Surgimento
+        ctx.drawImage(obstaculoHamburguer, obstaculo.eixoX, obstaculo.eixoY, obstaculo.aresta, obstaculo.aresta); // Surgimento
         moverObstaculo(); // Movimenta o obstáculo
 
         dificuldade();
