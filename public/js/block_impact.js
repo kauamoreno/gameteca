@@ -4,6 +4,7 @@ const larguraFaixa = 100;
 const larguraTela = qtdDeFaixas * larguraFaixa;
 const alturaTela = 700;
 let pontos = 0;
+let recorde = 0;
 
 const jogador = {
     'aresta': larguraFaixa,
@@ -22,9 +23,7 @@ const obstaculo = {
 }
 
 function iniciarAtraso() {
-    // setTimeout(iniciar, 2000);
-
-    let contador = 5; // Valor inicial do cronômetro
+    let contador = 3; // Valor inicial do cronômetro
 
     let cronometro = document.getElementById("cronometro");
     cronometro.innerHTML = contador; // Exibir o valor inicial
@@ -63,8 +62,8 @@ function iniciar() {
         ctx.fillRect(obstaculo.eixoX, obstaculo.eixoY, obstaculo.aresta, obstaculo.aresta); // Surgimento
         moverObstaculo(); // Movimenta o obstáculo
 
-        dificuldade()
-        gameOver()
+        dificuldade();
+        gameOver();
 
         document.addEventListener("keydown", moverJogador);
         setTimeout(ciclo, 10);
@@ -139,6 +138,8 @@ function gameOver() {
 
     if (rectsSobrepostos(jogadorRect, obstaculoRect)) {
         alert(`Game Over - Pontos: ${pontos}`);
+        
+        verificaRecorde(pontos);
         pontos = 0;
     }
 }
@@ -155,4 +156,11 @@ function rectsSobrepostos(rect1, rect2) {
 
 function mudarCor(cor) {
     jogador.cor = cor;
+}
+
+function verificaRecorde(pontos){
+    if(pontos > recorde){
+        recorde = pontos;
+        document.querySelector('#recorde').innerHTML = `Recorde: ${recorde}`;
+    }
 }
