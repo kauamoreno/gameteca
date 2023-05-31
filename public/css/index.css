@@ -1,0 +1,149 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/*HEADER************************************************************/
+header {
+    width: 100%;
+}
+
+.cabeca-page {
+    padding: 0 20px 0 30px;
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    background-image: linear-gradient(180deg, #ff0feb 0, #e719e5 16.67%, #c41ddb 33.33%, #a01ecd 50%, #7c1ebe 66.67%, #581db0 83.33%, #301ca2 100%);
+}
+
+#texto-index {
+    width: 50%;
+}
+
+#texto-index h1 {
+    color: white;
+    padding-top: 30px;
+    font-size: 55px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+#texto-index p {
+    color: rgb(201, 201, 201);
+    padding-top: 30px;
+    font-size: 18px;
+    padding-bottom: 30px;
+}
+
+aside img{
+    margin-left: 200px;
+}
+
+
+
+/*CARD**************************************************************/
+main {
+    padding-bottom: 80px;
+}
+
+#cards {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+}
+
+.card {
+    margin: 0 auto;
+    width: 300px;
+    margin-top: 70px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.card:hover {
+    transition: 150ms;
+    -webkit-box-shadow: 0px 0px 35px 30px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 0px 0px 35px 30px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 0px 35px 30px rgba(0, 0, 0, 0.16);
+}
+
+.imagens-index {
+    height: 300px;
+    width: 300px;
+}
+
+.texto-card {
+    color: black;
+    font-size: 18px;
+}
+
+
+/*RESPONSIVIDADE****************************************************/
+
+/*Main*/
+@media(max-width: 900px) {
+    #cards {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto;
+    }
+}
+
+/*Header*/
+@media(max-width: 1265px) {
+    .cabeca-page {
+        height: 400px;
+        padding-left: 10px;
+
+
+    }
+    .cabeca-page img {
+        width: 400px;
+    }
+}
+
+@media(max-width: 954px) {
+    #texto-index {
+        width: 100%;
+    }
+    aside img{
+        margin-left: 150px;
+    }
+}
+
+@media(max-width: 860px) {
+    .cabeca-page {
+        height: 400px;
+    }
+    .cabeca-page img {
+        display: none;
+    }
+}
+
+@media(max-width: 720px) {
+    #cards {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto auto auto;
+    }
+}
+
+@media(max-width: 460px) {
+    .cabeca-page {
+        height: 450px;
+        padding-right: 10px;
+        text-align: justify;
+    }
+}
+
+
+
+/*FOOTER************************************************************/
+footer{
+    font-size: 20px;
+    padding-bottom: 20px;
+}
