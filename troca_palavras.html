@@ -8,10 +8,21 @@
     <link rel="shortcut icon" href="public/img/favicon.png" type="image/x-icon">
     <title>Troca Palavras</title>
 
+    <link rel="stylesheet" href="public/css/header_games.css">
     <link rel="stylesheet" href="public/css/troca_palavras.css">
 </head>
 
 <body>
+    <header>
+        <a href="index.html" id="home">
+            <ion-icon name="home"></ion-icon>
+            <p>Home</p>
+        </a>
+        <a href="https://chat2-kauamoreno2005.b4a.run/" target="_blank" id="chat">
+            <ion-icon name="chatbox-ellipses"></ion-icon>
+            <p>Sala de Bate-Papo</p> 
+        </a>
+    </header>
     <main>
         <h1>Bem vindo ao jogo dos Filmes!</h1>
         <h3>Troque uma palavra do nome dos filmes e veja p que acontece!</h3>
@@ -28,6 +39,11 @@
         <button onclick="start()" id="começo">Jogar</button>
     </main>
 </body>
+
+<!-- IONICONS ------------------------------------------------------------------------------------->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 <script src="public/js/troca_palavras.js"></script>
 
 </html>
