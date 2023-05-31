@@ -1,0 +1,23 @@
+
+****************Todo List****************
+
+Estilizar jogo da forca
+    - Mudar Cores
+
+Estilizar jogo da velha
+    - Mudar Core de fundo e header
+    - Centralizar jogo
+
+Estilizar Troca Palavras
+    - Mudar Cor
+    - Mais palavras
+
+
+***************Block Impact**************
+    - FEITO 1. Add cronometro 
+    - 2. Desabilitar botão quando iniciar
+    - 3. Habilitar quando gameOver
+    - 4. Melhorar seleção de pernonagem
+
+Ideia Temática
+    - Jogo ta chovendo hamburguer
