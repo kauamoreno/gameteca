@@ -9,7 +9,7 @@ Estilizar jogo da velha
     - Centralizar jogo
 
 Estilizar Troca Palavras
-    - Mudar Cor
+    - Mudar INTERFACE
     - Mais palavras
 
 

@@ -1,5 +1,6 @@
 body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     color: #fff;
 }
@@ -20,6 +21,11 @@ h1 {
     text-align: center;
     color: #ffcc00;
     text-shadow: 2px 2px #333;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
 }
 
 

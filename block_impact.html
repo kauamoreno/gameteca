@@ -28,20 +28,21 @@
         <canvas id="tela">
             O seu navegador não suporta Canvas
         </canvas>
+        <aside>
+            <button onclick="iniciarAtraso()" id="iniciarBtn">Iniciar</button>
+            <div class="pontos">Pontos: 0</div>
+        </aside>
+    
+        <div class="escolhapersonagem">
+            <button id="red" onclick="mudarCor('red')">Red</button>
+            <button id="blue" onclick="mudarCor('blue')">Blue</button>
+            <button id="brown" onclick="mudarCor('brown')">Brown</button>
+        </div>
+    
+        <div id="cronometro">Cronometro</div>
+        <div id="recorde">Recorde: 0</div>
     </main>
-    <aside>
-        <button onclick="iniciarAtraso()" id="iniciarBtn">Iniciar</button>
-        <div class="pontos">Pontos: 0</div>
-    </aside>
-
-    <div class="escolhapersonagem">
-        <button id="red" onclick="mudarCor('red')">Red</button>
-        <button id="blue" onclick="mudarCor('blue')">Blue</button>
-        <button id="brown" onclick="mudarCor('brown')">Brown</button>
-    </div>
-
-    <div id="cronometro">Cronometro</div>
-    <div id="recorde">Recorde: 0</div>
+    
 
     <!-- <div class="placar">
         <h1>High Score Table</h1>
