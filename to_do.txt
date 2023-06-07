@@ -15,9 +15,10 @@ Estilizar Troca Palavras
 
 ***************Block Impact**************
     - FEITO 1. Add cronometro 
-    - 2. Desabilitar botão quando iniciar
-    - 3. Habilitar quando gameOver
+    - FEITO 2. Desabilitar botão quando iniciar
+    - FEITO 3. Habilitar quando gameOver
     - 4. Melhorar seleção de pernonagem
+    - 5. Colocar o cronometro dentro da tela
 
 Ideia Temática
     - Jogo ta chovendo hamburguer
