@@ -25,6 +25,17 @@ const obstaculo = {
     'cor': 'green'
 }
 
+window.addEventListener('DOMContentLoaded', function(){
+    info()
+});
+
+function info(){
+    Swal.fire({
+        imageUrl: 'public/img/block_impact/info.png',
+        imageAlt: 'Imagem informativa sobre as regras do jogo'
+    })
+}
+
 function iniciarAtraso() {
     //Desabilitando o btn iniciar
     document.querySelector('#iniciarBtn').disabled = true;
@@ -147,7 +158,7 @@ function gameOver() {
 
     if (rectsSobrepostos(jogadorRect, obstaculoRect)) {
         alert(`Game Over - Pontos: ${pontos}`);
-        
+
         verificaRecorde(pontos);
         pontos = 0;
     }
@@ -170,8 +181,8 @@ function mudarCor(cor) {
     jogador.cor = cor;
 }
 
-function verificaRecorde(pontos){
-    if(pontos > recorde){
+function verificaRecorde(pontos) {
+    if (pontos > recorde) {
         recorde = pontos;
         document.querySelector('#recorde').innerHTML = `Recorde: ${recorde}`;
     }
