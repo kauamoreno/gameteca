@@ -25,30 +25,26 @@
     </header>
 
     <main>
-        <canvas id="tela">
-            O seu navegador não suporta Canvas
-        </canvas>
-        <aside>
-            <button onclick="iniciarAtraso()" id="iniciarBtn">Iniciar</button>
-            <div class="pontos">Pontos: 0</div>
-        </aside>
-    
+        <div class="tela_cronom">
+            <canvas id="tela">
+                O seu navegador não suporta Canvas
+            </canvas>
+            <div id="cronometro">0</div>
+        </div>
+    </main>
+
+    <aside>
+        <button onclick="iniciarAtraso()" id="iniciarBtn">Iniciar</button>
+        <div class="pontos">Pontos: 0</div>
+
         <div class="escolhapersonagem">
             <button id="red" onclick="mudarCor('red')">Red</button>
             <button id="blue" onclick="mudarCor('blue')">Blue</button>
             <button id="brown" onclick="mudarCor('brown')">Brown</button>
         </div>
     
-        <div id="cronometro">Cronometro</div>
         <div id="recorde">Recorde: 0</div>
-    </main>
-    
-
-    <!-- IONICONS ------------------------------------------------------------------------------------->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-    <script src="public/js/block_impact.js"></script>
+    </aside>
 
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
@@ -60,6 +56,12 @@
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
+
+    <!-- IONICONS ------------------------------------------------------------------------------------->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script src="public/js/block_impact.js"></script>
 
 </body>
 
