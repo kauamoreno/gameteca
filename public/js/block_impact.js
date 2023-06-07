@@ -32,6 +32,8 @@ function iniciarAtraso() {
     let contador = 3; // Valor inicial do cronômetro
 
     let cronometro = document.getElementById("cronometro");
+    cronometro.style.display = 'block';
+    cronometro.style.fontSize = '100px';
     cronometro.innerHTML = contador; // Exibir o valor inicial
 
     let timer = setInterval(function () {
@@ -42,6 +44,7 @@ function iniciarAtraso() {
         } else {
             clearInterval(timer); // Parar o cronômetro quando chegar a 0
             iniciar();
+            cronometro.style.display = 'none';
         }
     }, 1000); // Atualizar a cada segundo (1000 milissegundos)
 
