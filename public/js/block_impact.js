@@ -26,6 +26,9 @@ const obstaculo = {
 }
 
 function iniciarAtraso() {
+    //Desabilitando o btn iniciar
+    document.querySelector('#iniciarBtn').disabled = true;
+
     let contador = 3; // Valor inicial do cronômetro
 
     let cronometro = document.getElementById("cronometro");
@@ -145,6 +148,9 @@ function gameOver() {
         verificaRecorde(pontos);
         pontos = 0;
     }
+
+    //Habilitando o btn iniciar
+    document.querySelector('#iniciarBtn').disabled = false;
 }
 
 // Função auxiliar para verificar a sobreposição entre dois retângulos
