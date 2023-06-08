@@ -10,26 +10,28 @@ let pontos = 0;
 let recorde = 0;
 
 const jogador = {
-    'aresta': larguraFaixa,
-    'eixoX': 0,
-    'eixoY': alturaTela - (larguraFaixa + 20),
-    'cor': 'yellow',
-    'velocidade': larguraFaixa
+    aresta: larguraFaixa,
+    eixoX: 0,
+    eixoY: alturaTela - (larguraFaixa + 20),
+    cor: 'yellow',
+    velocidade: larguraFaixa
 }
 
 const obstaculo = {
-    'aresta': larguraFaixa,
-    'eixoX': obstaculoEixoX(),
-    'eixoY': 0,
-    'velocidadeEixoX': 10,
-    'cor': 'green'
+    aresta: larguraFaixa,
+    eixoX: obstaculoEixoX(),
+    eixoY: 0,
+    velocidadeEixoX: 10,
+    cor: 'green'
 }
 
-window.addEventListener('DOMContentLoaded', function(){
+let jogoEmAndamento = false; // Variável de controle do jogo
+
+window.addEventListener('DOMContentLoaded', function () {
     info()
 });
 
-function info(){
+function info() {
     Swal.fire({
         imageUrl: 'public/img/block_impact/info.png',
         imageAlt: 'Imagem informativa sobre as regras do jogo'
@@ -37,8 +39,11 @@ function info(){
 }
 
 function iniciarAtraso() {
-    //Desabilitando o btn iniciar
+    // Desabilitando o btn iniciar, msg Game Over e pontos
     document.querySelector('#iniciarBtn').disabled = true;
+    document.querySelector('#gameOver').style.display = 'none';
+    document.querySelector('.pontos').innerHTML = `Pontos: ${pontos}`;
+
 
     let contador = 3; // Valor inicial do cronômetro
 
@@ -58,17 +63,17 @@ function iniciarAtraso() {
             cronometro.style.display = 'none';
         }
     }, 1000); // Atualizar a cada segundo (1000 milissegundos)
-
 }
 
 function iniciar() {
-
     let tela = document.querySelector('#tela');
     let ctx = tela.getContext('2d');
 
     // Atribuindo as dimensões da tela
     tela.width = larguraTela;
     tela.height = alturaTela;
+
+    jogoEmAndamento = true; // Define o jogo como estando em andamento
 
     const ciclo = () => {
         ctx.clearRect(0, 0, larguraTela, alturaTela); // Apagando a tela
@@ -86,12 +91,12 @@ function iniciar() {
         gameOver();
 
         document.addEventListener("keydown", moverJogador);
-        setTimeout(ciclo, 10);
-
+        if (jogoEmAndamento) { // Verifica se o jogo está em andamento
+            setTimeout(ciclo, 10);
+        }
     }
 
-    ciclo()
-
+    ciclo();
 }
 
 function moverJogador(event) {
@@ -119,18 +124,16 @@ function moverObstaculo() {
         obstaculo.eixoY = -obstaculo.aresta; // Reinicia a posição do obstáculo no topo da tela
         obstaculo.eixoX = obstaculoEixoX(); // Define uma nova posição aleatória no eixo X
 
-        pontos++
+        pontos++;
         document.querySelector('.pontos').innerHTML = `Pontos: ${pontos}`;
         console.log(pontos);
     }
 }
 
-
 const aumentarDificuldade = [6, 10, 20, 30, 40, 50, 60]; // Pontos para aumentar a dificuldade
 let dificuldadeAumentada = 0; // Contador de aumentos de dificuldade
 
 function dificuldade() {
-
     if (pontos == 0) {
         obstaculo.velocidadeEixoX = 10;
     }
@@ -157,13 +160,16 @@ function gameOver() {
     };
 
     if (rectsSobrepostos(jogadorRect, obstaculoRect)) {
-        alert(`Game Over - Pontos: ${pontos}`);
+        document.querySelector('#gameOver').style.display = 'block';
+        // alert(`Game Over - Pontos: ${pontos}`);
 
         verificaRecorde(pontos);
         pontos = 0;
+
+        jogoEmAndamento = false; // Define o jogo como não estando em andamento
     }
 
-    //Habilitando o btn iniciar
+    // Habilitando o btn iniciar
     document.querySelector('#iniciarBtn').disabled = false;
 }
 
