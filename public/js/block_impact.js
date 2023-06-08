@@ -39,6 +39,7 @@ function info() {
 }
 
 function iniciarAtraso() {
+
     // Desabilitando o btn iniciar, msg Game Over e pontos
     document.querySelector('#iniciarBtn').disabled = true;
     document.querySelector('#gameOver').style.display = 'none';
@@ -59,6 +60,7 @@ function iniciarAtraso() {
             cronometro.innerHTML = contador; // Exibir o valor atualizado
         } else {
             clearInterval(timer); // Parar o cronômetro quando chegar a 0
+            jogoEmAndamento = true; // Define o jogo como estando em andamento
             iniciar();
             cronometro.style.display = 'none';
         }
@@ -72,8 +74,6 @@ function iniciar() {
     // Atribuindo as dimensões da tela
     tela.width = larguraTela;
     tela.height = alturaTela;
-
-    jogoEmAndamento = true; // Define o jogo como estando em andamento
 
     const ciclo = () => {
         ctx.clearRect(0, 0, larguraTela, alturaTela); // Apagando a tela
@@ -93,6 +93,8 @@ function iniciar() {
         document.addEventListener("keydown", moverJogador);
         if (jogoEmAndamento) { // Verifica se o jogo está em andamento
             setTimeout(ciclo, 10);
+        }else{
+            ctx.clearRect(0, 0, larguraTela, alturaTela); // Limpa a tela 
         }
     }
 
@@ -130,17 +132,17 @@ function moverObstaculo() {
     }
 }
 
-const aumentarDificuldade = [6, 10, 20, 30, 40, 50, 60]; // Pontos para aumentar a dificuldade
+const aumentarDificuldade = [6, 15, 20, 40, 55, 65, 75, 90]; // Pontos para aumentar a dificuldade
 let dificuldadeAumentada = 0; // Contador de aumentos de dificuldade
 
 function dificuldade() {
     if (pontos == 0) {
-        obstaculo.velocidadeEixoX = 10;
+        obstaculo.velocidadeEixoX = 10; // Velocidade inicial
     }
     if (aumentarDificuldade.includes(pontos) && pontos > dificuldadeAumentada) {
         obstaculo.velocidadeEixoX += 3;
         dificuldadeAumentada = pontos;
-        console.log("vel " + obstaculo.velocidadeEixoX);
+        console.log("velocidade " + obstaculo.velocidadeEixoX);
     }
 }
 
@@ -161,12 +163,11 @@ function gameOver() {
 
     if (rectsSobrepostos(jogadorRect, obstaculoRect)) {
         document.querySelector('#gameOver').style.display = 'block';
-        // alert(`Game Over - Pontos: ${pontos}`);
 
         verificaRecorde(pontos);
         pontos = 0;
-
-        jogoEmAndamento = false; // Define o jogo como não estando em andamento
+        dificuldadeAumentada = 0;
+        jogoEmAndamento = false;
     }
 
     // Habilitando o btn iniciar
