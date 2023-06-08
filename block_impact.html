@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="public/img/favicon.png" type="image/x-icon">
     <title>Block Impact</title>
 
     <link rel="stylesheet" href="public/css/header_games.css">
@@ -24,28 +25,36 @@
         </a>
     </header>
 
-    <main>
-        <div class="tela_cronom">
-            <canvas id="tela">
-                O seu navegador não suporta Canvas
-            </canvas>
-            <div id="cronometro">0</div>
-        </div>
-    </main>
-
-    <aside>
-        <button onclick="iniciarAtraso()" id="iniciarBtn">Iniciar</button>
-        <div class="pontos">Pontos: 0</div>
-
-        <div class="escolhapersonagem">
-            <button id="red" onclick="mudarCor('red')">Red</button>
-            <button id="blue" onclick="mudarCor('blue')">Blue</button>
-            <button id="brown" onclick="mudarCor('brown')">Brown</button>
-        </div>
+    <div class="row">
+        <main>
+            <div class="tela_cronom">
+                <canvas id="tela">
+                    O seu navegador não suporta Canvas
+                </canvas>
+                <div id="cronometro">0</div>
+                <div id="gameOver">Game Over</div>
+            </div>
+        </main>
     
-        <div id="recorde">Recorde: 0</div>
-    </aside>
+        <aside>
+            <button onclick="iniciarAtraso()" id="iniciarBtn">Iniciar</button>
+            
+            <div class="ponto_record">
+                <div id="recorde">Recorde: 0</div>
+                <div class="pontos">Pontos: 0</div>
+            </div>
+            
+    
+            <div class="escolhapersonagem">
+                <button id="red" onclick="mudarCor('red')">Red</button>
+                <button id="blue" onclick="mudarCor('blue')">Blue</button>
+                <button id="brown" onclick="mudarCor('brown')">Brown</button>
+            </div>
+        
+        </aside>    
+    </div>
 
+    
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>

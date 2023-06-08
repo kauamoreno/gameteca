@@ -7,10 +7,22 @@ body {
     color: #fff;
 }
 
+.row{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 #tela {
     background-color: rgb(32, 32, 32);
     height: 700px;
     width: 300px;
+}
+
+aside{
+    margin-left: 50px;
 }
 
 .pontos,
@@ -18,7 +30,7 @@ body {
 #recorde {
     color: #444;
     font-size: 40px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Press Start 2P', cursive;
 }
 
 h1 {
@@ -36,11 +48,26 @@ main {
     position: relative;
 }
 
-#cronometro {
+#cronometro, #gameOver {
     font-family: 'Press Start 2P', cursive;
     display: none;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+#iniciarBtn{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 0, 0, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+}
+#iniciarBtn:hover{
+    transition: 300ms;
+    background-color: red;
 }
