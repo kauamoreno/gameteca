@@ -8,6 +8,7 @@ const larguraTela = qtdDeFaixas * larguraFaixa;
 const alturaTela = 700;
 let pontos = 0;
 let recorde = 0;
+let jogoEmAndamento = false; // Variável de controle do jogo
 
 const jogador = {
     aresta: larguraFaixa,
@@ -25,7 +26,6 @@ const obstaculo = {
     cor: 'green'
 }
 
-let jogoEmAndamento = false; // Variável de controle do jogo
 
 window.addEventListener('DOMContentLoaded', function () {
     info()
@@ -85,15 +85,16 @@ function iniciar() {
         // Adiciona um quadrado na tela
         ctx.fillStyle = obstaculo.cor; // Cor
         ctx.drawImage(obstaculoHamburguer, obstaculo.eixoX, obstaculo.eixoY, obstaculo.aresta, obstaculo.aresta); // Surgimento
-        moverObstaculo(); // Movimenta o obstáculo
 
+        // Verificações
+        moverObstaculo();
         dificuldade();
         gameOver();
-
         document.addEventListener("keydown", moverJogador);
+
         if (jogoEmAndamento) { // Verifica se o jogo está em andamento
             setTimeout(ciclo, 10);
-        }else{
+        } else {
             ctx.clearRect(0, 0, larguraTela, alturaTela); // Limpa a tela 
         }
     }
@@ -115,8 +116,18 @@ function moverJogador(event) {
 
 function obstaculoEixoX() {
     let opcoes = [0, larguraFaixa, larguraFaixa * (qtdDeFaixas - 1)];
+    let ultimoIndice = null; 
     let indiceAleatorio = Math.floor(Math.random() * opcoes.length);
-    return opcoes[indiceAleatorio];
+
+    if(ultimoIndice == indiceAleatorio){
+        if(indiceAleatorio.length == indiceAleatorio){
+            return ultimoIndice = opcoes[indiceAleatorio - 1];
+        }else {
+            return ultimoIndice = opcoes[indiceAleatorio + 1]
+        }
+    }else{
+        return ultimoIndice = opcoes[indiceAleatorio];
+    }
 }
 
 function moverObstaculo() {
@@ -132,7 +143,7 @@ function moverObstaculo() {
     }
 }
 
-const aumentarDificuldade = [6, 15, 20, 40, 55, 65, 75, 90]; // Pontos para aumentar a dificuldade
+const aumentarDificuldade = [6, 15, 30, 40, 55, 65, 75, 90]; // Pontos para aumentar a dificuldade
 let dificuldadeAumentada = 0; // Contador de aumentos de dificuldade
 
 function dificuldade() {
@@ -168,6 +179,14 @@ function gameOver() {
         pontos = 0;
         dificuldadeAumentada = 0;
         jogoEmAndamento = false;
+
+        // Redefinir jogador para sua posição padrão
+        jogador.eixoX = 0;
+        jogador.eixoY = alturaTela - (larguraFaixa + 20);
+
+        // Redefinir obstáculo para sua posição padrão
+        obstaculo.eixoX = obstaculoEixoX();
+        obstaculo.eixoY = 0;
     }
 
     // Habilitando o btn iniciar
