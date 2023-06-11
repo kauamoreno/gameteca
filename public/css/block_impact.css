@@ -7,7 +7,7 @@ body {
     color: #fff;
 }
 
-.row{
+.row {
     padding-top: 50px;
     padding-bottom: 50px;
     display: flex;
@@ -21,7 +21,7 @@ body {
     width: 300px;
 }
 
-aside{
+aside {
     margin-left: 50px;
 }
 
@@ -48,7 +48,8 @@ main {
     position: relative;
 }
 
-#cronometro, #gameOver {
+#cronometro,
+#gameOver {
     font-family: 'Press Start 2P', cursive;
     display: none;
     position: absolute;
@@ -57,7 +58,8 @@ main {
     transform: translate(-50%, -50%);
 }
 
-#iniciarBtn{
+#iniciarBtn {
+    cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     width: 100%;
@@ -67,18 +69,19 @@ main {
     border: none;
     border-radius: 10px;
 }
-#iniciarBtn:hover{
+
+#iniciarBtn:hover {
     transition: 300ms;
     background-color: red;
 }
 
-
-.dinheiro{
+.dinheiro {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.quantia{
+
+.quantia {
     color: #ffcc00;
     font-size: 30px;
     font-weight: 700;
@@ -124,30 +127,90 @@ main {
     display: block;
 }
 
-#yellow #check{
+#yellow #check {
     display: block;
 }
-#check{
-    font-size: 30px;
+
+#check {
+    font-size: 50px;
+    font-weight: bold;
     display: none;
 }
 
 /*Atribuindo colors da box*/
-#red{
+#red {
     background-color: red;
 }
-#green{
+
+#green {
     background-color: green;
 }
-#blue{
+
+#blue {
     background-color: blue;
 }
-#yellow{
+
+#yellow {
     background-color: yellow;
 }
-#orange{
+
+#orange {
     background-color: orange;
 }
-#purple{
+
+#purple {
     background-color: purple;
+}
+
+
+.valorCorTXT {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.cadeado {
+    font-size: 80px;
+}
+
+@keyframes semDin {
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-20deg);
+    }
+
+    50% {
+        transform: rotate(20deg);
+    }
+
+    75% {
+        transform: rotate(-20deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.semDIn-animacao {
+    animation: semDin 2s linear;
+}
+
+.txt{
+    height: 100%;
+}
+
+.precoCorIMG_TXT{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.valor{
+    margin-left: 10px;
 }

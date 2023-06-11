@@ -205,18 +205,6 @@ function rectsSobrepostos(rect1, rect2) {
     );
 }
 
-function mudarCor(cor, id) {
-
-    // Apagando todos os checks 
-    const checks = document.querySelectorAll("#check");
-    checks.forEach((elemento) => {
-        elemento.style.display = "none";
-    });
-
-    jogador.cor = cor;
-    document.querySelector(`#${id} #check`).style.display = 'block';
-}
-
 function verificaRecorde(pontos) {
     if (pontos > recorde) {
         recorde = pontos;
@@ -229,33 +217,67 @@ function addCoin(pontos) {
     document.querySelector('.quantia').innerHTML = `x ${coins}`;
 }
 
+// TABELA DE PREÇOS
+const precoCores = {
+    red: 2,
+    green: 50,
+    blue: 70,
+    yellow: 0,
+    orange: 80,
+    purple: 100
+}
 
-// TABELA DE PREÇOS*************
-// const red = 0;
-// const green = 50;
-// const blue = 70;
-// const yellow = 0;
-// const orange = 80;
-// const purple = 100;
-//******************************
+// Setando os preços
+for (let cor in precoCores) {
+    const preco = precoCores[cor];
+    document.querySelector(`#${cor} .txt`).innerHTML = `
+    
+        <div class="precoCorIMG_TXT">
+            <ion-icon class="cadeado" name="lock-closed"></ion-icon>
+            <div class="valorCorTXT">
+                <img width="20px" src="public/img/block_impact/coin.webp" alt="Coin">
+                <div class="valor">x ${preco}</div>
+            </div>
+        </div>
+    `;
+}
 
-// const precoCores = {
-//     red: 0,
-//     green: 50,
-//     blue: 70,
-//     yellow: 0,
-//     orange: 80,
-//     purple: 100
-// }
+let coresCompradas = ['yellow'];
+document.querySelector(`#yellow .txt`).style.display = 'none' // Apagando preço
+
+function mudarCor(cor, id) {
 
 
-// function compra(cor, coins){
-//     this.cor = cor;
+    if (coresCompradas.includes(cor)) {
+        const checks = document.querySelectorAll("#check");
+        checks.forEach((elemento) => {
+            elemento.style.display = "none";
+        });
 
-//     if(precoCores.cor <= coins){
-//         coins - precoCores.cor;
-//         return true;
-//     }else{
-//         return true;
-//     }
-// }
+        jogador.cor = cor;
+        document.querySelector(`#${id} #check`).style.display = 'block';
+
+    } else { //Comprando cor
+
+        if (!(precoCores[cor] <= coins)) {
+            document.querySelector(`#${cor} .txt .cadeado`).classList.add('semDIn-animacao');
+            setTimeout(function () {
+                document.querySelector(`#${cor} .txt .cadeado`).classList.remove('semDIn-animacao');
+            }, 2000);
+
+        } else {
+            coins -= precoCores[cor];
+            document.querySelector('.quantia').innerHTML = `x ${coins}`;
+
+            const checks = document.querySelectorAll("#check");
+            checks.forEach((elemento) => {
+                elemento.style.display = "none";
+            });
+
+            document.querySelector(`#${cor} .txt`).style.display = 'none' // Apagando preço
+            coresCompradas.push(cor);
+            jogador.cor = cor;
+            document.querySelector(`#${id} #check`).style.display = 'block';
+        }
+    }
+}
