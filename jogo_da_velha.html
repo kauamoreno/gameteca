@@ -10,7 +10,6 @@
 
     <link rel="stylesheet" href="public/css/header_games.css">
     <link rel="stylesheet" href="public/css/jogo_da_velha.css">
-    <link rel="stylesheet" href="public/css/header_games.css">
 
 </head>
 
@@ -27,65 +26,84 @@
         </a>
     </header>
 
-    <div id="jogo">
-        <div class="linha">
-            <div class="casa" id="casa0" onclick="verifica(0)">
-                <img alt="" id="img0" />
+    <main>
+
+        <div id="jogo">
+            <div class="linha">
+                <div class="casa" id="casa0" onclick="verifica(0)">
+                    <img alt="" id="img0" />
+                </div>
+
+                <div class="casa" id="casa1" onclick="verifica(1)">
+                    <img alt="" id="img1" />
+                </div>
+
+                <div class="casa" id="casa2" onclick="verifica(2)">
+                    <img alt="" id="img2" />
+                </div>
             </div>
 
-            <div class="casa" id="casa1" onclick="verifica(1)">
-                <img alt="" id="img1" />
+            <div class="linha">
+                <div class="casa" id="casa3" onclick="verifica(3)">
+                    <img alt="" id="img3" />
+                </div>
+
+                <div class="casa" id="casa4" onclick="verifica(4)">
+                    <img alt="" id="img4" />
+                </div>
+
+                <div class="casa" id="casa5" onclick="verifica(5)">
+                    <img alt="" id="img5" />
+                </div>
             </div>
 
-            <div class="casa" id="casa2" onclick="verifica(2)">
-                <img alt="" id="img2" />
+            <div class="linha">
+                <div class="casa" id="casa6" onclick="verifica(6)">
+                    <img alt="" id="img6" />
+                </div>
+
+                <div class="casa" id="casa7" onclick="verifica(7)">
+                    <img alt="" id="img7" />
+                </div>
+
+                <div class="casa" id="casa8" onclick="verifica(8)">
+                    <img alt="" id="img8" />
+                </div>
             </div>
         </div>
 
-        <div class="linha">
-            <div class="casa" id="casa3" onclick="verifica(3)">
-                <img alt="" id="img3" />
-            </div>
+        <div id="resultado">
+            <!-- <p id="resposta">Resultado: </p> -->
+            <p class="title_resultado">Resultado: </p>
+            <br>
+            <table>
+                <tr>
+                    <td class="xis">Pontos X:</td>
+                    <td id="xis">0</td>
+                </tr>
+                <tr>
+                    <td class="bola">Pontos O:</td>
+                    <td id="bola">0</td>
+                </tr>
+                <tr>
+                    <td class="velha">Pontos Velha:</td>
+                    <td id="velha">0</td>
+                </tr>
+            </table>
+            <form>
+                <input type="button" id="btnNovoJogo" value="NOVO JOGO" onclick="recomeca()">
+            </form>
+            
 
-            <div class="casa" id="casa4" onclick="verifica(4)">
-                <img alt="" id="img4" />
-            </div>
-
-            <div class="casa" id="casa5" onclick="verifica(5)">
-                <img alt="" id="img5" />
-            </div>
         </div>
+    </main>
 
-        <div class="linha">
-            <div class="casa" id="casa6" onclick="verifica(6)">
-                <img alt="" id="img6" />
-            </div>
-
-            <div class="casa" id="casa7" onclick="verifica(7)">
-                <img alt="" id="img7" />
-            </div>
-
-            <div class="casa" id="casa8" onclick="verifica(8)">
-                <img alt="" id="img8" />
-            </div>
-        </div>
-    </div>
-
-    <div id="resultado">
-        <p id="resposta">Resultado: </p>
-        <br>
-        <p id="xis" class="xis">Pontos X: 0</p>
-        <p id="bola" class="bola">Pontos O: 0</p>
-        <p id="velha" class="velha">Velha: 0</p>
-        <form>
-            <input type="button" id="btnNovoJogo" value="NOVO JOGO" onclick="recomeca()">
-        </form>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- IONICONS ------------------------------------------------------------------------------------->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    
+
     <script src="public/js/jogo_da_velha.js"></script>
 
 </body>

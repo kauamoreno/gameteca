@@ -21,10 +21,13 @@ function verifica(casa) {
         casas[casa] = vez;
         //se o jogador da vez for 1 coloca o desenho do xis
         if (vez == 1) {
-            document.getElementById("img" + casa).src = "public/img/jogo_da_velha/xis.webp";
+
+            document.getElementById("img" + casa).src = "public/img/jogo_da_velha/X.png";
+            document.getElementById("img" + casa).style.display = 'block'
             //se o jogador da vez for - coloca a boliha
         } else {
-            document.getElementById("img" + casa).src = "public/img/jogo_da_velha/bola.webp";
+            document.getElementById("img" + casa).src = "public/img/jogo_da_velha/O.png";
+            document.getElementById("img" + casa).style.display = 'block'
         }
 
         //inverte o jogadr da vez
@@ -68,29 +71,29 @@ function confere() {
 
     //ercorre todos os valores de soma
     for (i = 0; i < soma.length; i++) {
-        console.log(  soma[i])
+        console.log(soma[i])
         if (soma[i] == -3) {
             //se houver sabemos que ainda não deu velha
             lGanhou = true;
             sResposta = "Bolinha ganhou";
             iPontosO++;
-            document.getElementById("bola").innerHTML = "Pontos o: " + iPontosO;
+            document.getElementById("bola").innerHTML = iPontosO;
             break;
 
         } else if (soma[i] == 3) {
             lGanhou = true;
             sResposta = "Xis ganhou";
             iPontosX++;
-            document.getElementById("xis").innerHTML = "Pontos X: " + iPontosX;
+            document.getElementById("xis").innerHTML = iPontosX;
             break;
         }
     }
 
     //se a bola e nem o xis ganharam mas o jgo acabou deu velha
     if (lGanhou == false && lAcabou == true) {
-        sResposta = "deu velha";
+        sResposta = "Deu Velha";
         iPontosV++;
-        document.getElementById("velha").innerHTML = "velha: " + iPontosV;
+        document.getElementById("velha").innerHTML = iPontosV;
     }
 
     if (lGanhou || lAcabou) {
@@ -99,10 +102,11 @@ function confere() {
             casas[i] = 0;
         }
         //exibe o resultado
-        document.getElementById("resposta").innerHTML = sResposta;
-        document.getElementById("resposta").style.color = "#fff";
-        document.getElementById("resposta").style.fontSize = "xx-large";
+        // document.getElementById("resposta").innerHTML = sResposta;
+        // document.getElementById("resposta").style.color = "#fff";
+        // document.getElementById("resposta").style.fontSize = "xx-large";
 
+        Swal.fire(`Resultado: ${sResposta}`)
     }
 }
 
@@ -113,14 +117,15 @@ function recomeca() {
 
         //habilita as casas
         document.getElementById("casa" + i).disable = false;
+        document.getElementById("img" + i).style.display = 'none';
 
         //remove as imagens
         document.getElementById("img" + i).src = "";
 
         //volta a configuração orignal
-        document.getElementById("resposta").innerHTML = "Resultado";
-        document.getElementById("resposta").style.color = "#fff";
-        document.getElementById("resposta").style.fontSize = "arge";
+        // document.getElementById("resposta").innerHTML = "Resultado";
+        // document.getElementById("resposta").style.color = "#fff";
+        // document.getElementById("resposta").style.fontSize = "arge";
 
 
         //restrura os 9 das casas
