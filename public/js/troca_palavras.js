@@ -9,6 +9,7 @@ function muda_palavra(){
     palavra[2].innerHTML = newtext;
     palavra[3].innerHTML = newtext;
     palavra[4].innerHTML = newtext;
+    palavra[5].innerHTML = newtext;
 
     for(i =0; i< palavra.length;i++){
     }
@@ -22,4 +23,5 @@ function start(){
     document.getElementById("filme3").innerHTML = newword;
     document.getElementById("filme4").innerHTML = newword;
     document.getElementById("filme5").innerHTML = newword;
+    document.getElementById("filme6").innerHTML = newword;
 }

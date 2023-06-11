@@ -25,18 +25,45 @@
     </header>
     <main>
         <h1>Bem vindo ao jogo dos Filmes!</h1>
-        <h3>Troque uma palavra do nome dos filmes e veja p que acontece!</h3>
+        <h3>Troque uma palavra do nome dos filmes e veja o que acontece!</h3>
 
-        <p>A hora do <strong id="filme1">Rush</strong></p>
-        <p>O <strong id="filme2">Mágico</strong> de OZ"</p>
-        <p>11 homens e um <strong id="filme3">segredo</strong></p>
-        <p><strong id="filme4">Planeta</strong> dos Macacos</p>
-        <p>Procurando <strong id="filme5">Nemo</strong></p>
-        <br />
-
-
-        <input type="text" id="palavra" placeholder="Digite uma palavra" /> <br />
-        <button onclick="start()" id="começo">Jogar</button>
+        <div class="row">
+            <input type="text" maxlength="15" id="palavra" placeholder="Digite uma palavra" /> <br />
+            <button onclick="start()" id="começo">Mudar</button>
+        </div>
+        
+        <div class="filmes">
+            <div class="column">
+                <div class="image-container">
+                    <img width="300px" height="200px" src="public/img/troca_palavras/hora_do_rush.avif" alt="Imagem">
+                    <p class="image-text" id="rush">A Hora do <strong id="filme1">Rush</strong></p>
+                </div>
+                <div class="image-container">
+                    <img width="300px" height="200px" src="public/img/troca_palavras/planeta_macacos.jpg" alt="Imagem">
+                    <p class="image-text" id="planeta_macacos"><strong id="filme2">Planeta</strong> dos Macacos</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="image-container">
+                    <img width="300px" height="200px" src="public/img/troca_palavras/11homens.jpg" alt="Imagem">
+                    <p class="image-text" id="homens">11 homens e um <strong id="filme3">Segredo</strong></p>
+                </div>
+                <div class="image-container">
+                    <img width="300px" height="200px" src="public/img/troca_palavras/procurando_nemo.webp" alt="Imagem">
+                    <p class="image-text" id="nemo">Procurando <strong id="filme4">Nemo</strong></p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="image-container">
+                    <img width="300px" height="200px" src="public/img/troca_palavras/poderoso.jpg" alt="Imagem">
+                    <p class="image-text" id="poderoso">O Poderoso <strong id="filme5">Chefão</strong></p>
+                </div>
+                <div class="image-container">
+                    <img width="300px" height="200px" src="public/img/troca_palavras/prince.jpg" alt="Imagem">
+                    <p class="image-text" id="prince">O Pequeno <strong id="filme6">Principe</strong></p>
+                </div>
+            </div>
+        </div>
     </main>
 
     <div vw class="enabled">
