@@ -71,3 +71,83 @@ main {
     transition: 300ms;
     background-color: red;
 }
+
+
+.dinheiro{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.quantia{
+    color: #ffcc00;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+
+/*DROPDOWN*****************************************************/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background-color: #f1f1f1;
+    border: none;
+    color: black;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.color-row {
+    display: flex;
+}
+
+.color-box {
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#yellow #check{
+    display: block;
+}
+#check{
+    font-size: 30px;
+    display: none;
+}
+
+/*Atribuindo colors da box*/
+#red{
+    background-color: red;
+}
+#green{
+    background-color: green;
+}
+#blue{
+    background-color: blue;
+}
+#yellow{
+    background-color: yellow;
+}
+#orange{
+    background-color: orange;
+}
+#purple{
+    background-color: purple;
+}

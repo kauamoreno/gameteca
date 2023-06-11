@@ -7,6 +7,7 @@ const larguraFaixa = 100;
 const larguraTela = qtdDeFaixas * larguraFaixa;
 const alturaTela = 700;
 let pontos = 0;
+let coins = 0;
 let recorde = 0;
 let jogoEmAndamento = false; // Variável de controle do jogo
 
@@ -116,16 +117,16 @@ function moverJogador(event) {
 
 function obstaculoEixoX() {
     let opcoes = [0, larguraFaixa, larguraFaixa * (qtdDeFaixas - 1)];
-    let ultimoIndice = null; 
+    let ultimoIndice = null;
     let indiceAleatorio = Math.floor(Math.random() * opcoes.length);
 
-    if(ultimoIndice == indiceAleatorio){
-        if(indiceAleatorio.length == indiceAleatorio){
+    if (ultimoIndice == indiceAleatorio) {
+        if (indiceAleatorio.length == indiceAleatorio) {
             return ultimoIndice = opcoes[indiceAleatorio - 1];
-        }else {
+        } else {
             return ultimoIndice = opcoes[indiceAleatorio + 1]
         }
-    }else{
+    } else {
         return ultimoIndice = opcoes[indiceAleatorio];
     }
 }
@@ -176,6 +177,7 @@ function gameOver() {
         document.querySelector('#gameOver').style.display = 'block';
 
         verificaRecorde(pontos);
+        addCoin(pontos);
         pontos = 0;
         dificuldadeAumentada = 0;
         jogoEmAndamento = false;
@@ -203,8 +205,16 @@ function rectsSobrepostos(rect1, rect2) {
     );
 }
 
-function mudarCor(cor) {
+function mudarCor(cor, id) {
+
+    // Apagando todos os checks 
+    const checks = document.querySelectorAll("#check");
+    checks.forEach((elemento) => {
+        elemento.style.display = "none";
+    });
+
     jogador.cor = cor;
+    document.querySelector(`#${id} #check`).style.display = 'block';
 }
 
 function verificaRecorde(pontos) {
@@ -213,3 +223,39 @@ function verificaRecorde(pontos) {
         document.querySelector('#recorde').innerHTML = `Recorde: ${recorde}`;
     }
 }
+
+function addCoin(pontos) {
+    coins += pontos;
+    document.querySelector('.quantia').innerHTML = `x ${coins}`;
+}
+
+
+// TABELA DE PREÇOS*************
+// const red = 0;
+// const green = 50;
+// const blue = 70;
+// const yellow = 0;
+// const orange = 80;
+// const purple = 100;
+//******************************
+
+// const precoCores = {
+//     red: 0,
+//     green: 50,
+//     blue: 70,
+//     yellow: 0,
+//     orange: 80,
+//     purple: 100
+// }
+
+
+// function compra(cor, coins){
+//     this.cor = cor;
+
+//     if(precoCores.cor <= coins){
+//         coins - precoCores.cor;
+//         return true;
+//     }else{
+//         return true;
+//     }
+// }
