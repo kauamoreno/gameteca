@@ -108,7 +108,16 @@ main {
     padding: 8px 16px;
     font-size: 20px;
     cursor: pointer;
+
+    /* text-align: center; */
+    align-items: center;
+    display: flex;
+    flex-direction: row;
 }
+
+.dropdown-btn p{
+    margin-right: 10px;
+} 
 
 .dropdown-btn:hover{
     transition: 300ms;
@@ -225,4 +234,8 @@ main {
 
 .valor{
     margin-left: 10px;
+}
+
+#shop{
+    font-size: 30px;
 }
