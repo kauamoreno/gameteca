@@ -1,6 +1,3 @@
-const obstaculoHamburguer = new Image();
-obstaculoHamburguer.src = '/public/img/block_impact/obstaculo.png';
-//obstaculoHamburguer.src = '/public/img/block_impact/cars/red.png';
 
 const qtdDeFaixas = 3;
 const larguraFaixa = 100;
@@ -88,6 +85,8 @@ function iniciar() {
         ctx.drawImage(personagemImg, jogador.eixoX, jogador.eixoY, jogador.larg, jogador.alt); // Surgimento
 
         // Adiciona um quadrado na tela
+        const obstaculoHamburguer = new Image();
+        obstaculoHamburguer.src = '/public/img/block_impact/obstaculo.png';
         ctx.fillStyle = obstaculo.cor; // Cor
         ctx.drawImage(obstaculoHamburguer, obstaculo.eixoX, obstaculo.eixoY, obstaculo.aresta, obstaculo.aresta); // Surgimento
 
