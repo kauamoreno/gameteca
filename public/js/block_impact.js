@@ -1,5 +1,6 @@
 const obstaculoHamburguer = new Image();
-obstaculoHamburguer.src = '/public/img/block_impact/hamburguer2.png';
+obstaculoHamburguer.src = '/public/img/block_impact/obstaculo.png';
+//obstaculoHamburguer.src = '/public/img/block_impact/cars/red.png';
 
 const qtdDeFaixas = 3;
 const larguraFaixa = 100;
@@ -12,9 +13,10 @@ let recorde = 0;
 let jogoEmAndamento = false; // Variável de controle do jogo
 
 const jogador = {
-    aresta: larguraFaixa,
+    larg: larguraFaixa,
+    alt: larguraFaixa * 1.3,
     eixoX: 0,
-    eixoY: alturaTela - (larguraFaixa + 20),
+    eixoY: alturaTela - (larguraFaixa * 1.3 + 20),
     cor: 'yellow',
     velocidade: larguraFaixa
 }
@@ -80,8 +82,10 @@ function iniciar() {
         ctx.clearRect(0, 0, larguraTela, alturaTela); // Apagando a tela
 
         // Adiciona um quadrado na tela
+        const personagemImg = new Image();
+        personagemImg.src = `/public/img/block_impact/cars/${jogador.cor}.png`;
         ctx.fillStyle = jogador.cor; // Cor
-        ctx.fillRect(jogador.eixoX, jogador.eixoY, jogador.aresta, jogador.aresta); // Surgimento
+        ctx.drawImage(personagemImg, jogador.eixoX, jogador.eixoY, jogador.larg, jogador.alt); // Surgimento
 
         // Adiciona um quadrado na tela
         ctx.fillStyle = obstaculo.cor; // Cor
@@ -106,11 +110,11 @@ function iniciar() {
 function moverJogador(event) {
     const tecla = event.key;
 
-    if (tecla == "ArrowLeft" && jogador.eixoX >= jogador.aresta) {
+    if (tecla == "ArrowLeft" && jogador.eixoX >= jogador.larg) {
         jogador.eixoX -= jogador.velocidade;
     }
 
-    if (tecla == "ArrowRight" && jogador.eixoX < (larguraTela - jogador.aresta)) {
+    if (tecla == "ArrowRight" && jogador.eixoX < (larguraTela - jogador.larg)) {
         jogador.eixoX += jogador.velocidade;
     }
 }
@@ -162,8 +166,8 @@ function gameOver() {
     const jogadorRect = {
         x: jogador.eixoX,
         y: jogador.eixoY,
-        width: jogador.aresta,
-        height: jogador.aresta
+        width: jogador.larg,
+        height: jogador.alt
     };
 
     const obstaculoRect = {
@@ -184,7 +188,7 @@ function gameOver() {
 
         // Redefinir jogador para sua posição padrão
         jogador.eixoX = 0;
-        jogador.eixoY = alturaTela - (larguraFaixa + 20);
+        jogador.eixoY = alturaTela - (larguraFaixa * 1.3 + 20);
 
         // Redefinir obstáculo para sua posição padrão
         obstaculo.eixoX = obstaculoEixoX();

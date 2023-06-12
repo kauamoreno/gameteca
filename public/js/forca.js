@@ -73,7 +73,7 @@ function confere(cLetra) {
     //Percorre as letras da palavra sorteada
     for (var i = 0; i < sPalavraSorteada.length; i++) {
         //Se a letra clicada, existir na palavra
-        if(cLetra == sPalavraSorteada.charAt(i)){
+        if (cLetra == sPalavraSorteada.charAt(i)) {
             document.getElementById("tenta" + i).value = cLetra;
             //Conta acertos
             iAcertos++;
@@ -93,31 +93,36 @@ function confere(cLetra) {
 }
 
 //Função que verifica se o jogo acabou
-function acabou(){
+function acabou() {
     //Cria variável que indicará se o jogo acabou
     var lAcabou = false;
     //Se a quantidade de acertos for igual ao tamanho da palavra
-    if(iAcertos == sPalavraSorteada.length){
+    if (iAcertos == sPalavraSorteada.length) {
         //O jogo acabou
         lAcabou = true;
         //Exibe mensagem
-        alert("Parabéns, você conseguiu!");
+        //alert("Parabéns, você conseguiu!");
+
+       Swal.fire('Parabéns, você conseguiu!');
+
+
         iCertas++;
         //Se a quantidade de letras erradas chegou a 6
-    }else if(iErro == 6){
+    } else if (iErro == 6) {
         //O jogo acabou
         lAcabou = true;
         //Exibe a mensagem
-        alert('Enforcado');
+        //alert('Enforcado');
+        Swal.fire('Enforcado, você perdeu!');
         iErradas++;
     }
 
     //Desabilita a letra clicada
     document.getElementById(cLetraClicada).disabled = true;
     //Se o jogo acabou
-    if(lAcabou){
+    if (lAcabou) {
         //Remove todos os inputs
-        for(var i = 0; i < sPalavraSorteada.length; i++){
+        for (var i = 0; i < sPalavraSorteada.length; i++) {
             document.getElementById("tenta" + i).remove();
         }
         //Incrementa jogadas para ir para a próxima palavra
@@ -133,15 +138,15 @@ function acabou(){
         //Volta imagem da forca
         document.getElementById("imagem").src = "public/img/forca/forca" + (iErro + 1) + ".png";
         //Habilita todas as letras
-        for(var i = 0; i < sLetras.length; i++){
+        for (var i = 0; i < sLetras.length; i++) {
             document.getElementById(sLetras[i]).disabled = false;
         }
     }
 }
 
 //Função que mistura os valores do Array
-function shuffleArray(d){
-    for(var c = d.length - 1; c > 0; c--){
+function shuffleArray(d) {
+    for (var c = d.length - 1; c > 0; c--) {
         var b = Math.floor(Math.random() * (c + 1));
         var a = d[c];
         d[c] = d[b];
@@ -150,7 +155,7 @@ function shuffleArray(d){
     return d;
 }
 
-function limpa(sItem){
+function limpa(sItem) {
     var sResultado = sItem;
     //Retira todos os espaços
     sResultado = replaceAll(sResultado, " ", "");
@@ -160,11 +165,11 @@ function limpa(sItem){
 }
 
 //Função para substituir todas as ocorrências
-function replaceAll(str, de, para){
+function replaceAll(str, de, para) {
     //Procura a ocorrência
     var pos = str.indexOf(de);
     //Se achou
-    while(pos > -1){
+    while (pos > -1) {
         //Substitui
         str = str.replace(de, para);
         //E procura novamente a ocorrência
@@ -174,28 +179,28 @@ function replaceAll(str, de, para){
     return (str);
 }
 
-function shake(e, oncomplete, distance, time){
+function shake(e, oncomplete, distance, time) {
     var time = 500;
     var distance = 5;
 
     var start = (new Date()).getTime();
     animate();
 
-    function animate(){
+    function animate() {
         var now = (new Date()).getTime();
         var elapsed = now - start;
         var fraction = elapsed / time;
-        if(fraction < 1){
+        if (fraction < 1) {
             var x = distance * Math.sin(fraction * 4 * Math.PI);
             e.style.left = x + "px";
 
             setTimeout(animate, Math.min(25, time - elapsed));
-        }else{
-            if(oncomplete) oncomplete(e);
+        } else {
+            if (oncomplete) oncomplete(e);
         }
     }
 }
 
-function shakeme(event1){
+function shakeme(event1) {
     shake(event1.target);
 }
