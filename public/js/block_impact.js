@@ -80,15 +80,15 @@ function iniciar() {
 
         // Adiciona um quadrado na tela
         const personagemImg = new Image();
-        personagemImg.src = `/public/img/block_impact/cars/${jogador.cor}.png`;
+        personagemImg.src = `public/img/block_impact/cars/${jogador.cor}.png`;
         ctx.fillStyle = jogador.cor; // Cor
         ctx.drawImage(personagemImg, jogador.eixoX, jogador.eixoY, jogador.larg, jogador.alt); // Surgimento
 
         // Adiciona um quadrado na tela
-        const obstaculoHamburguer = new Image();
-        obstaculoHamburguer.src = '/public/img/block_impact/obstaculo.png';
+        const obstaculoIMG = new Image();
+        obstaculoIMG.src = 'public/img/block_impact/obstaculo.png';
         ctx.fillStyle = obstaculo.cor; // Cor
-        ctx.drawImage(obstaculoHamburguer, obstaculo.eixoX, obstaculo.eixoY, obstaculo.aresta, obstaculo.aresta); // Surgimento
+        ctx.drawImage(obstaculoIMG, obstaculo.eixoX, obstaculo.eixoY, obstaculo.aresta, obstaculo.aresta); // Surgimento
 
         // Verificações
         moverObstaculo();
