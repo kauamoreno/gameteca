@@ -1,7 +1,7 @@
 <h1 align="center">Gameteca</h1>
 Uma página de jogos em JavaScript com quatro títulos cativantes, oferecendo diversão e entretenimento para os entusiastas de games.
 
-### Jogos
+### Jogos 🕹️
 * Jogo da Forca
 * Jogo da Velha
 * Troca Palavras
@@ -9,7 +9,7 @@ Uma página de jogos em JavaScript com quatro títulos cativantes, oferecendo di
 
 <br>
 
-## Game Car Impact
+## 🏎️ Game Car Impact
 
 <div>
 
@@ -20,14 +20,17 @@ Uma página de jogos em JavaScript com quatro títulos cativantes, oferecendo di
 
 O jogo foi desenvolvido utilizando os recursos do HTML5, como o elemento <canvas>, além das linguagens CSS e JavaScript para manipular e estilizar o canvas.
 
-### Objetivo
+###  Objetivo ✅
 * Escapar dos obstaculos que tem no caminho
 * Conseguir comprar todos os carros
 
-### Como Jogar
+###  Como Jogar 🎮
 * Usando as setas (← →) do teclado para movimentar o carro
+   
+###  Video de inspiração 📀
+* https://www.youtube.com/shorts/zc0Jylxaqmo
 
-### Contribuições e Melhorias Propostas
+###  Contribuições e Melhorias Propostas ✨
   
 * Desenvolver uma interface mais intuitiva para melhorar a experiência do usuário.
 * Adicionar mais carros ao jogo, aumentando a variedade e desafio para os jogadores.
@@ -38,19 +41,19 @@ O jogo foi desenvolvido utilizando os recursos do HTML5, como o elemento <canvas
 <br>
   
   
-## Instruções de execução na maquina local
+## 🚀 Instruções de execução na maquina local 
 1. Clone o repositório para sua máquina.
 2. Abra o arquivo index.html em seu navegador.
 3. Divirta-se jogando o game e aproveite as novas melhorias implementadas.
 
 <br>
 
-## Contribuição
+## ➕ Contribuição
 Se você deseja contribuir para este projeto, sinta-se à vontade para enviar pull requests com melhorias, correções de bugs ou novos recursos. Sua contribuição é bem-vinda!
 
 <br>
 
-## Licença
+## 📝 Licença
 Este projeto está sob a licença MIT, para mais informações consulte o arquivo [LICENSE](LICENSE) .
 <br><br>
 
